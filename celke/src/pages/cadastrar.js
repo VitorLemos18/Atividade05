@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 import { headers } from "../../next.config";
 import "bootstrap/dist/css/bootstrap.min.css";
-//import {axios} from 'axios';
+import axios from 'axios';
 
 export default function Cadastrar() {
   const [data, setData] = useState({

@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 import { headers } from "../../next.config";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { servDelete } from "@/services/servDelete";
-//import {axios} from 'axios';
+import axios from 'axios';
 
 export default function Home() {
 
   // Declarar a variavel para receber os registros retorno da API
-  //const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
+
+  const [message, setMessage] = useState([]);
 
   // Declarar a variavel para receber o número da pagina
   //const [page, setPage] = useState([]);
@@ -17,7 +19,7 @@ export default function Home() {
   //const [lastPage, setLastPage] = useState("");
 
   // Criar a função com requisição para API recuperar usuários
-  //const getLivro = async (page) =>{
+  const getLivro = async (page) =>{
 
  /* if(page === undefined){
     page = 1;
@@ -25,14 +27,13 @@ export default function Home() {
   setPage(page)
 */
     // Realizar a requisição para API com axios para a rota listar usuários
-   /* await axios.get("http://localhost:3000/")
+    await axios.get("http://localhost:8080/lista")
     .then((response) => { // Acessa o then quando a API retorna status 200
 
       //Atribuir os registros no state data
-      setData(response.data.users)
-
+      setData(response.data.lista)
       //Atribuir a última página
-      setLestPage(response.data.pagination.lastPage)
+      //setLestPage(response.data.pagination.lastPage)
 
     }).catch((err) => { // Acessa o then quando a API retorna erro
       //Acessa o if quando a Api retornar erro
@@ -52,17 +53,31 @@ export default function Home() {
   useEffect(() => {
     // Chamar a função com requisição para API
     getLivro();
-  }, []);*/
+  }, []);
 
- /* const deleteLivro = async (id) => {
-    if(windows.confirm("Tem certeza que deseja deletar o livro?")){
-    const response = await servDelete('url' + idUser);
-    setMessage(response)
-    getLivro(page)
-  }
+const excluirLivro = async (id) =>{
+  console.log("id:"+id)
+  // Realizar a requisição para API com axios para a rota listar usuários
+  await axios.get("http://localhost:8080/deletaLivro/"+id)
+  .then((response) => { // Acessa o then quando a API retorna status 200
+
+    //Atribuir os registros no state data
+    setData(response.data.lista)
+    //Atribuir a última página
+    //setLestPage(response.data.pagination.lastPage)
+
+  }).catch((err) => { // Acessa o then quando a API retorna erro
+    //Acessa o if quando a Api retornar erro
+    if (err.response) {
+    //Atribui a mensagem no state mensage  
+      setMessage(err.response.data.mensage);
+    } else {
+      //Atribui a mensagem no state mensage
+      setMessage("Erro: tente mais tarde!")
+    }
+  })
 }
-*/
-  
+
   return (
     <>
       <Head>
@@ -108,16 +123,18 @@ export default function Home() {
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Harry Potter</td>
-        <td>Uma história mágica...</td>
-        <td>J.K. Rowling</td>
-        <td>Scholastic</td>
-        <td>
-          <button class="btn btn-danger" /*onclick={(id)}*/>Excluir</button>
-        </td>
-      </tr>
+    {data.map(livro => ( 
+          <tr key={livro._id}>
+            <td>{livro.livro_cod}</td><br />
+            <td>{livro.livro_titulo}</td><br />
+            <td>{livro.livro_resumo}</td><br />
+            <td>{livro.livro_autor}</td><br />
+            <td>{livro.livro_editora}</td><br />
+            <td>
+              <button class="btn btn-danger" onClick={()=>excluirLivro(livro._id)}>Excluir</button>
+            </td>
+          </tr>
+        ))}
     </tbody>
   </table>
 </div>
@@ -129,13 +146,13 @@ export default function Home() {
 
 /* parte que fica dentro do main, para receber os dados 
         {data.map(user => ( 
-          <div key={user. id}>
-            <span>CodLivro: {user.id}</span><br />
-            <span>Titulo: {user.titulo}</span><br />
-            <span>Resumo: {user.resumo}</span><br />
-            <span>Autor: {user.autor}</span><br />
-            <span>Editor: {user.editor}</span><br />
-          </div>
+          <tr key={user. id}>
+            <td>CodLivro: {user.id}</td><br />
+            <td>Titulo: {user.titulo}</td><br />
+            <td>Resumo: {user.resumo}</td><br />
+            <td>Autor: {user.autor}</td><br />
+            <td>Editor: {user.editor}</td><br />
+          </tr>
         ))}
 
 
