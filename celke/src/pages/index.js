@@ -88,13 +88,8 @@ const excluirLivro = async (id) =>{
       </Head>
       <main>
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -108,11 +103,12 @@ const excluirLivro = async (id) =>{
     </div>
 </nav>
 
-        <h2>Catálogo de Livros</h2>
+        
 
-  <div class="container mt-5">
-   <table class="table">
-    <thead>
+<div class="container mt-5">
+<h2 className="mb-4">Catálogo de Livros</h2>
+  <table class="table table-borderless table-hover ">
+    <thead class="table-dark">
       <tr>
         <th>CodLivro</th>
         <th>Titulo</th>
@@ -122,61 +118,24 @@ const excluirLivro = async (id) =>{
         <th>Ação</th>
       </tr>
     </thead>
-    <tbody>
-    {data.map(livro => ( 
-          <tr key={livro._id}>
-            <td>{livro.livro_cod}</td><br />
-            <td>{livro.livro_titulo}</td><br />
-            <td>{livro.livro_resumo}</td><br />
-            <td>{livro.livro_autor}</td><br />
-            <td>{livro.livro_editora}</td><br />
-            <td>
-              <button class="btn btn-danger" onClick={()=>excluirLivro(livro._id)}>Excluir</button>
-            </td>
-          </tr>
-        ))}
+    <tbody class="table-body">
+      {data.map(livro => ( 
+        <tr key={livro._id}>
+          <td>{livro.livro_cod}</td>
+          <td>{livro.livro_titulo}</td>
+          <td>{livro.livro_resumo}</td>
+          <td>{livro.livro_autor}</td>
+          <td>{livro.livro_editora}</td>
+          <td class="data-cell">
+            <button class="btn btn-danger" onClick={() => excluirLivro(livro._id)}>Excluir</button>
+          </td>
+        </tr>
+      ))}
     </tbody>
   </table>
 </div>
+
       </main>
     </>
   );
 }
-
-
-/* parte que fica dentro do main, para receber os dados 
-        {data.map(user => ( 
-          <tr key={user. id}>
-            <td>CodLivro: {user.id}</td><br />
-            <td>Titulo: {user.titulo}</td><br />
-            <td>Resumo: {user.resumo}</td><br />
-            <td>Autor: {user.autor}</td><br />
-            <td>Editor: {user.editor}</td><br />
-          </tr>
-        ))}
-
-
-        <div class="container mt-5">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>CodLivro</th>
-        <th>Titulo</th>
-        <th>Resumo</th>
-        <th>Autor</th>
-        <th>Editor</th>
-        <th>Ação</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{user.id}</td>
-        <td>{user.titulo}</td>
-        <td>{user.resumo}</td>
-        <td>{user.autor}</td>
-        <td>{user.editor}</td>
-        <td>
-          <button class="btn btn-danger" onclick="excluirLivro({user.id})">Excluir</button>
-        </td>
-      </tr>
-*/

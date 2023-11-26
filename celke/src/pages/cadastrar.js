@@ -67,13 +67,8 @@ export default function Cadastrar() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -86,10 +81,11 @@ export default function Cadastrar() {
         </div>
     </div>
 </nav>
-        <h2>Cadastrar Livro</h2>
+
 
         <form onSubmit={addLivro} className="container mt-4">
           <div className="mb-3">
+          <h2 className="mb-4">Cadastrar Livro</h2>
             <label htmlFor="titulo" className="form-label">
               Título
             </label>
