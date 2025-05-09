@@ -1,56 +1,61 @@
-Atividade05
-Este repositório contém a implementação da Atividade 05, desenvolvida como parte do curso de HTML5 e CSS3.
+
+📘 Atividade 05
+Este repositório contém a implementação da Atividade 05, desenvolvida como parte do curso de HTML5 e CSS3. O projeto explora conceitos fundamentais de desenvolvimento web com foco em estrutura de páginas, estilização e funcionalidades básicas.
 
 📁 Estrutura do Projeto
-api/: Diretório contendo arquivos relacionados à API.
-
-celke/: Diretório com arquivos específicos do Celke.
-
-node_modules/: Diretório gerado automaticamente com as dependências do projeto.
-
-package-lock.json: Arquivo que registra as versões exatas das dependências instaladas.
-
-package.json: Arquivo que gerencia as dependências e scripts do projeto.
-
-🚀 Como Rodar o Projeto
-Clone este repositório para o seu ambiente local:
+perl
+Copiar
+Editar
+Atividade05/
+├── api/                 # Scripts relacionados à API
+├── celke/               # Arquivos do projeto com base no curso Celke
+├── node_modules/        # Dependências instaladas (gerado automaticamente)
+├── package.json         # Configurações e dependências do projeto
+├── package-lock.json    # Controle de versões das dependências
+🚀 Como Executar o Projeto
+Clone o repositório:
 
 bash
 Copiar
 Editar
 git clone https://github.com/VitorLemos18/Atividade05.git
 cd Atividade05
-Instale as dependências necessárias:
+Instale as dependências:
 
 bash
 Copiar
 Editar
 npm install
-Inicie o servidor de desenvolvimento:
+Inicie a aplicação:
 
 bash
 Copiar
 Editar
 npm start
-Abra o navegador e acesse http://localhost:3000 para visualizar o projeto em execução.
+Abra no navegador:
 
+arduino
+Copiar
+Editar
+http://localhost:3000
 🛠 Tecnologias Utilizadas
-JavaScript: Linguagem principal utilizada no desenvolvimento.
+HTML5
 
-Node.js: Ambiente de execução para JavaScript no servidor.
+CSS3
 
-npm: Gerenciador de pacotes para o Node.js.
+JavaScript
+
+Node.js
+
+npm
 
 👥 Equipe
-Este projeto foi desenvolvido por:
-
-Vitor Lemos - @VitorLemos18
-
-Sinta-se à vontade para contribuir ou entrar em contato!
+Nome	GitHub
+Vitor Lemos	@VitorLemos18
 
 📚 Referências
-Curso de HTML5 e CSS3 (Atualizado): Material de apoio utilizado no desenvolvimento desta atividade.
+Curso de HTML5 e CSS3 (José C. Júnior)
 
 📄 Licença
-Este projeto está licenciado sob a Licença MIT - consulte o arquivo LICENSE para mais detalhes.
+Este projeto está licenciado sob a Licença MIT.
 
